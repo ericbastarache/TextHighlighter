@@ -4,9 +4,11 @@ const wordField = document.getElementById('word-to-add');
 var wordArr = [];
 
 newWordBtn.addEventListener('click', () => {
-  wordArr.push(wordField.value);
-  wordField.value = "";
-
+  if(wordField.value !== "") {
+    wordArr.push(wordField.value);
+    wordField.value = "";
+  }
+  
   for(let i = 0; i < wordArr.length; i++) {
     //console.log(wordArr[i]);
     var wordItem = document.createElement('li');
