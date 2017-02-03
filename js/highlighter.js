@@ -12,4 +12,6 @@ newWordBtn.addEventListener('click', () => {
     var listOfWords = document.getElementById('words-list');
     listOfWords.append(wordItem);
   }
+  wordArr.pop();
+  console.log(wordArr);
 });
