@@ -20,9 +20,12 @@ newWordBtn.addEventListener('click', () => {
 wordField.addEventListener('keydown', (e) => {
   if(e.code === "Enter") {
     e.preventDefault();
-    wordArr.push(wordField.value);
-    wordField.value = "";
+    if(wordField.value !== "") {
+      wordArr.push(wordField.value);
+      wordField.value = "";
+    }
   }
+
   for(let i = 0; i < wordArr.length; i++) {
     //console.log(wordArr[i]);
     var wordItem = document.createElement('li');
@@ -35,8 +38,10 @@ wordField.addEventListener('keydown', (e) => {
 
 highlightBtn.addEventListener('click', () => {
   var words = document.getElementsByTagName('li');
+  var highlightThese = [];
   for(let wd = 0; wd < words.length; wd++) {
     //console.log(words[wd].innerHTML);
-    
+    highlightThese.push(words[wd].innerHTML);
+    console.log(highlightThese);
   }
 });
