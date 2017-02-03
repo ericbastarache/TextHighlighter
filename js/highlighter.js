@@ -13,5 +13,4 @@ newWordBtn.addEventListener('click', () => {
     listOfWords.append(wordItem);
   }
   wordArr.pop();
-  console.log(wordArr);
 });
