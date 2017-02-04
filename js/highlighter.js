@@ -64,6 +64,7 @@ highlightBtn.addEventListener('click', () => {
   }
 });
 
+//Event listener for the words list to determine which element is clicked
 listOfWords.addEventListener('click', () => {
   deleteWord();
 });
