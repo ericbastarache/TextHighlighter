@@ -79,6 +79,7 @@ const deleteWord = () => {
     //Find the item that got clicked and get the index to delete the correct element
     wordList[i].onclick = (e) => {
       var pText = document.getElementById('highlight-me');
+      //Remove the highlighting on whichever words element was clicked
       for(var dl = 0; dl < toDelete.length; dl++) {
         if(~pText.innerHTML.indexOf(`<span class="highlight">${toDelete[dl]}</span>`)) {
           let str = pText.innerHTML;
