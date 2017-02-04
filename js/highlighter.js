@@ -58,9 +58,9 @@ highlightBtn.addEventListener('click', () => {
   for(let hlWd = 0; hlWd < highlightThese.length; hlWd++) {
     //console.log(highlightThese[hlWd]);
     if(~toHighlight.innerHTML.indexOf(highlightThese[hlWd])) {
-      console.log(highlightThese[hlWd].length);
-      toHighlight.innerHTML.replace(highlightThese[hlWd], `<span class='highlight'>${highlightThese[hlWd]}</span>`);
-      console.log(toHighlight.innerHTML);
+      let str = toHighlight.innerHTML;
+      str = str.split(highlightThese[hlWd]).join(`<span class="highlight">${highlightThese[hlWd]}</span>`);
+      toHighlight.innerHTML = str;
     }
   }
 });
