@@ -3,6 +3,7 @@ const highlightBtn = document.getElementById('highlight-btn');
 const wordField = document.getElementById('word-to-add');
 const error = document.getElementById('error');
 const toHighlight = document.getElementById('highlight-me');
+const listOfWords = document.getElementById('words-list');
 var wordArr = [];
 
 //Add event handler to the button to add a word to the list
@@ -15,7 +16,6 @@ newWordBtn.addEventListener('click', () => {
   for(let i = 0; i < wordArr.length; i++) {
     var wordItem = document.createElement('li');
     wordItem.innerHTML = wordArr[i];
-    var listOfWords = document.getElementById('words-list');
     listOfWords.append(wordItem);
   }
   wordArr.pop();
@@ -34,7 +34,6 @@ wordField.addEventListener('keydown', (e) => {
   for(let i = 0; i < wordArr.length; i++) {
     var wordItem = document.createElement('li');
     wordItem.innerHTML = wordArr[i];
-    var listOfWords = document.getElementById('words-list');
     listOfWords.append(wordItem);
   }
   wordArr.pop();
@@ -64,3 +63,21 @@ highlightBtn.addEventListener('click', () => {
     }
   }
 });
+
+listOfWords.addEventListener('click', () => {
+  deleteWord();
+});
+
+const deleteWord = () => {
+  //Grab the list of words so that delete buttons can be added to each
+  var wordList = document.getElementsByTagName('li');
+  var toDelete = [];
+  for(var i = 0; i < wordList.length; i++) {
+    toDelete.push(wordList[i]);
+    wordList[i].onclick = (e) => {
+      var index = toDelete.indexOf(e.target);
+      var el = document.querySelector('.words-list');
+      el.removeChild(e.target);
+    }
+  }
+}
