@@ -72,8 +72,10 @@ const deleteWord = () => {
   //Grab the list of words so that delete buttons can be added to each
   var wordList = document.getElementsByTagName('li');
   var toDelete = [];
+  //Loop over the elements in the array and push them to the delete array
   for(var i = 0; i < wordList.length; i++) {
     toDelete.push(wordList[i]);
+    //Find the item that got clicked and get the index to delete the correct element
     wordList[i].onclick = (e) => {
       var index = toDelete.indexOf(e.target);
       var el = document.querySelector('.words-list');
