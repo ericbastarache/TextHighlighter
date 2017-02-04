@@ -75,10 +75,17 @@ const deleteWord = () => {
   var toDelete = [];
   //Loop over the elements in the array and push them to the delete array
   for(var i = 0; i < wordList.length; i++) {
-    toDelete.push(wordList[i]);
+    toDelete.push(wordList[i].innerHTML);
     //Find the item that got clicked and get the index to delete the correct element
     wordList[i].onclick = (e) => {
-      var index = toDelete.indexOf(e.target);
+      var pText = document.getElementById('highlight-me');
+      for(var dl = 0; dl < toDelete.length; dl++) {
+        if(~pText.innerHTML.indexOf(`<span class="highlight">${toDelete[dl]}</span>`)) {
+          let str = pText.innerHTML;
+          str = str.split(`<span class="highlight">${toDelete[dl]}</span>`).join(toDelete[dl]);
+          pText.innerHTML = str;
+        }
+      }
       var el = document.querySelector('.words-list');
       el.removeChild(e.target);
     }
