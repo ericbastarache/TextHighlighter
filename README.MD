@@ -2,6 +2,13 @@
 
 Dead simple JavaScript text highlighter written purely with JS.
 
+##How To Use
+
+1. Type a word into the TextArea and then either click the button or press Enter
+2. Watch your text get highlighted!
+
+To remove highlight on text, simply click your word in the populated list of words and it will be removed along with the highlighting.
+
 ##TO DO
 
 1. ~~Add a feature allowing you to remove word(s) from the list~~
