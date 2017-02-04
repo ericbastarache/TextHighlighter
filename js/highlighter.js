@@ -5,14 +5,14 @@ const error = document.getElementById('error');
 const toHighlight = document.getElementById('highlight-me');
 var wordArr = [];
 
+//Add event handler to the button to add a word to the list
 newWordBtn.addEventListener('click', () => {
   if(wordField.value !== "") {
     wordArr.push(wordField.value);
     wordField.value = "";
   }
-
+  //Loop over the word array and create a list item to append the word to
   for(let i = 0; i < wordArr.length; i++) {
-    //console.log(wordArr[i]);
     var wordItem = document.createElement('li');
     wordItem.innerHTML = wordArr[i];
     var listOfWords = document.getElementById('words-list');
@@ -21,6 +21,7 @@ newWordBtn.addEventListener('click', () => {
   wordArr.pop();
 });
 
+//Add event handler to the word field so that you can press enter instead of clicking the button
 wordField.addEventListener('keydown', (e) => {
   if(e.code === "Enter") {
     e.preventDefault();
@@ -29,9 +30,8 @@ wordField.addEventListener('keydown', (e) => {
       wordField.value = "";
     }
   }
-
+  //Loop over the word array and create a list item to append the word to
   for(let i = 0; i < wordArr.length; i++) {
-    //console.log(wordArr[i]);
     var wordItem = document.createElement('li');
     wordItem.innerHTML = wordArr[i];
     var listOfWords = document.getElementById('words-list');
@@ -39,13 +39,13 @@ wordField.addEventListener('keydown', (e) => {
   }
   wordArr.pop();
 })
-
+/*Loop over the li elements and get a words array, with which an error/success class is added
+depending on what happens (doesn't currently display the red colour if array is empty)*/
 highlightBtn.addEventListener('click', () => {
   var highlightThese = [];
 
   var words = document.getElementsByTagName('li');
   for(let wd = 0; wd < words.length; wd++) {
-    //console.log(words[wd].innerHTML);
     highlightThese.push(words[wd].innerHTML);
 
     if(highlightThese.length >= 1) {
@@ -55,8 +55,8 @@ highlightBtn.addEventListener('click', () => {
       error.style = "display: block;";
     }
   }
+  //Loop over the array of words and add a highlight class for each reoccurrence of the same word.
   for(let hlWd = 0; hlWd < highlightThese.length; hlWd++) {
-    //console.log(highlightThese[hlWd]);
     if(~toHighlight.innerHTML.indexOf(highlightThese[hlWd])) {
       let str = toHighlight.innerHTML;
       str = str.split(highlightThese[hlWd]).join(`<span class="highlight">${highlightThese[hlWd]}</span>`);
