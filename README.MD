@@ -12,6 +12,5 @@ To remove highlight on text, simply click your word in the populated list of wor
 ##TO DO
 
 1. ~~Add a feature allowing you to remove word(s) from the list~~
-2. ~~When you remove a word, remove the highlighting from the word(s) in the sample text~~
-3. Allow users to write their own text, then highlight specific words within that text
-4. Make into a plugin?
+2. When you remove a word, remove the highlighting from the word(s) in the sample text
+3. ~~Allow users to write their own text, then allow for highlighting of specific words within that text~~
