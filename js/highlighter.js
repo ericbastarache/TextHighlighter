@@ -122,5 +122,10 @@ customField.addEventListener('input', (txtVal) => {
 customTextBtn.addEventListener('click', () => {
   if(customPreview.innerHTML !== "") {
     toHighlight.innerHTML = customPreview.innerHTML;
+    customField.value = "";
+    customPreview.innerHTML = "";
+    while(listOfWords.firstChild) {
+      listOfWords.removeChild(listOfWords.firstChild);
+    }
   }
 });
