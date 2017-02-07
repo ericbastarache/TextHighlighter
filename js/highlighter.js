@@ -4,6 +4,10 @@ const wordField = document.getElementById('word-to-add');
 const error = document.getElementById('error');
 const toHighlight = document.getElementById('highlight-me');
 const listOfWords = document.getElementById('words-list');
+const customTextBtn = document.getElementById('add-custom');
+const customField = document.getElementById('custom-text');
+const customPreview = document.querySelector('.preview');
+
 var wordArr = [];
 
 //Add event handler to the button to add a word to the list
@@ -92,3 +96,13 @@ const deleteWord = () => {
     }
   }
 }
+
+customField.addEventListener('input', (txtVal) => {
+  customPreview.innerHTML = txtVal.target.value;
+});
+
+customTextBtn.addEventListener('click', () => {
+  if(customPreview.innerHTML !== "") {
+    toHighlight.innerHTML = customPreview.innerHTML;
+  }
+});
