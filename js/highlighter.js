@@ -93,6 +93,24 @@ const deleteWord = () => {
       }
       var el = document.querySelector('.words-list');
       el.removeChild(e.target);
+      reHighlight();
+    }
+  }
+}
+
+const reHighlight = () => {
+  var highlightThese = [];
+
+  var words = document.getElementsByTagName('li');
+  for(let wd = 0; wd < words.length; wd++) {
+    highlightThese.push(words[wd].innerHTML);
+  }
+  //Loop over the array of words and add a highlight class for each reoccurrence of the same word.
+  for(let hlWd = 0; hlWd < highlightThese.length; hlWd++) {
+    if(~toHighlight.innerHTML.indexOf(highlightThese[hlWd])) {
+      let str = toHighlight.innerHTML;
+      str = str.split(highlightThese[hlWd]).join(`<span class="highlight">${highlightThese[hlWd]}</span>`);
+      toHighlight.innerHTML = str;
     }
   }
 }
